@@ -87,7 +87,9 @@ public class SpongeMinecraftVersion implements ProtocolMinecraftVersion {
     }
 
     public static int compare(ProtocolMinecraftVersion version, MinecraftVersion to) {
-        if (version == to) return 0;
+        if (version == to) {
+            return 0;
+        }
         return to.isLegacy() ? 1 : version.getProtocol() - ((ProtocolMinecraftVersion) to).getProtocol();
     }
 }

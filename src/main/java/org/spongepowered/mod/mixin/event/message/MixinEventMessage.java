@@ -26,7 +26,6 @@ package org.spongepowered.mod.mixin.event.message;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
-
 import org.spongepowered.api.event.message.MessageEvent;
 import org.spongepowered.api.util.annotation.NonnullByDefault;
 import org.spongepowered.api.util.command.CommandSource;
@@ -37,13 +36,14 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(value = net.minecraftforge.event.ServerChatEvent.class, remap = false)
 public abstract class MixinEventMessage implements MessageEvent {
 
-    @Shadow public String message, username;
+    @Shadow public String message;
+    @Shadow public String username;
     @Shadow public EntityPlayerMP player;
     @Shadow public ChatComponentTranslation component;
 
     @Override
     public CommandSource getSource() {
-        return (CommandSource)this.player;
+        return (CommandSource) this.player;
     }
 
     @Override

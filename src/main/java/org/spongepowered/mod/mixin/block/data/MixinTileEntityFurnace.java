@@ -26,32 +26,32 @@ package org.spongepowered.mod.mixin.block.data;
 
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
-
 import net.minecraft.tileentity.TileEntityLockable;
 import org.spongepowered.api.block.data.Furnace;
 import org.spongepowered.api.util.annotation.NonnullByDefault;
 import org.spongepowered.asm.mixin.Implements;
 import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 
 @NonnullByDefault
 @Implements(@Interface(iface = Furnace.class, prefix = "furnace$"))
 @Mixin(net.minecraft.tileentity.TileEntityFurnace.class)
 public abstract class MixinTileEntityFurnace extends TileEntityLockable implements IUpdatePlayerListBox, ISidedInventory {
 
-    @Shadow
-    public abstract int getField(int id);
+    public int furnace$getRemainingBurnTime() {
+        return getField(0);
+    }
 
-    @Shadow
-    public abstract void setField(int id, int value);
+    public void furnace$setRemainingBurnTime(int time) {
+        setField(0, time);
+    }
 
-    public int furnace$getRemainingBurnTime() { return getField(0); }
+    public int furnace$getRemainingCookTime() {
+        return getField(3) - getField(2);
+    }
 
-    public void furnace$setRemainingBurnTime(int time) { setField(0, time); }
-
-    public int furnace$getRemainingCookTime() { return getField(3) - getField(2); }
-
-    public void furnace$setRemainingCookTime(int time) { setField(2, getField(3) - time); }
+    public void furnace$setRemainingCookTime(int time) {
+        setField(2, getField(3) - time);
+    }
 
 }

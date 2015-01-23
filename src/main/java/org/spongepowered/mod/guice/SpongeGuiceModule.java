@@ -45,9 +45,10 @@ import org.spongepowered.mod.event.SpongeEventBus;
 import org.spongepowered.mod.plugin.SpongePluginManager;
 import org.spongepowered.mod.registry.SpongeGameRegistry;
 
-import javax.inject.Inject;
 import java.io.File;
 import java.lang.annotation.Annotation;
+
+import javax.inject.Inject;
 
 public class SpongeGuiceModule extends AbstractModule {
 
@@ -116,9 +117,9 @@ public class SpongeGuiceModule extends AbstractModule {
 
         @Override
         public String toString() {
-            return "@org.spongepowered.api.service.config.Config(" +
-                   "sharedRoot=" + this.shared +
-                   ')';
+            return "@org.spongepowered.api.service.config.Config("
+                   + "sharedRoot=" + this.shared
+                   + ')';
         }
     }
 
@@ -163,9 +164,9 @@ public class SpongeGuiceModule extends AbstractModule {
 
         @Override
         public String toString() {
-            return "@org.spongepowered.api.service.config.ConfigDir(" +
-                   "sharedRoot=" + this.shared +
-                   ')';
+            return "@org.spongepowered.api.service.config.ConfigDir("
+                   + "sharedRoot=" + this.shared
+                   + ')';
         }
     }
 

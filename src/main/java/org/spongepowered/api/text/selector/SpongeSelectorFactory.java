@@ -26,11 +26,11 @@ package org.spongepowered.api.text.selector;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.spongepowered.api.util.annotation.NonnullByDefault;
 import org.spongepowered.mod.text.selector.SpongeSelectorBuilder;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @NonnullByDefault
 public class SpongeSelectorFactory implements SelectorFactory {
@@ -61,17 +61,18 @@ public class SpongeSelectorFactory implements SelectorFactory {
                 String key = null;
 
                 switch (i++) {
-                    case 0 :
+                    case 0:
                         key = "x";
                         break;
-                    case 1 :
+                    case 1:
                         key = "y";
                         break;
-                    case 2 :
+                    case 2:
                         key = "z";
                         break;
-                    case 3 :
+                    case 3:
                         key = "r";
+                    default:
                 }
 
                 if (key != null && shortcuts.group(1).length() > 0) {

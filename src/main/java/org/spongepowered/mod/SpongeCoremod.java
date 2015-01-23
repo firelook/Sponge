@@ -24,12 +24,11 @@
  */
 package org.spongepowered.mod;
 
-import java.util.Map;
-
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
-
 import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.mixin.MixinEnvironment;
+
+import java.util.Map;
 
 public class SpongeCoremod implements IFMLLoadingPlugin {
 
@@ -41,9 +40,9 @@ public class SpongeCoremod implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
         return new String[]{
-                MixinBootstrap.TRANSFORMER_CLASS,
-                //"org.spongepowered.mod.asm.transformers.EventTransformer",
-                //"org.spongepowered.mod.asm.transformers.BaseEventTransformer"
+            MixinBootstrap.TRANSFORMER_CLASS,
+            //"org.spongepowered.mod.asm.transformers.EventTransformer",
+            //"org.spongepowered.mod.asm.transformers.BaseEventTransformer"
         };
     }
 

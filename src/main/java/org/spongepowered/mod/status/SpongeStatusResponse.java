@@ -38,7 +38,8 @@ import java.util.regex.Pattern;
 
 public final class SpongeStatusResponse {
 
-    private SpongeStatusResponse() {}
+    private SpongeStatusResponse() {
+    }
 
     public static ServerStatusResponse post(MinecraftServer server, StatusClient client) {
         return call(create(server), client);
@@ -102,7 +103,7 @@ public final class SpongeStatusResponse {
         return getFirstLine(response.getServerDescription().getUnformattedText());
     }
 
-    private static final Pattern STRIP_FORMATTING = Pattern.compile("(?i)\u00a7[0-9A-FK-OR]?");
+    private static final Pattern STRIP_FORMATTING = Pattern.compile("(?i)§[0-9A-FK-OR]?");
 
     public static String getUnformattedMotd(ServerStatusResponse response) {
         return getFirstLine(STRIP_FORMATTING.matcher(response.getServerDescription().getUnformattedText()).replaceAll(""));
